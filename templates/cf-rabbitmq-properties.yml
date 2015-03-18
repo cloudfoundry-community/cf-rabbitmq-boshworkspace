@@ -30,11 +30,7 @@ properties:
     api_url: (( meta.cf.api_url ))
     admin_username: (( meta.cf.admin_username ))
     admin_password: (( meta.cf.admin_password ))
-    nats:
-      host: (( meta.cf.nats.host ))
-      port: (( meta.cf.nats.port ))
-      username: (( meta.cf.nats.username ))
-      password: (( meta.cf.nats.password ))
+    nats: (( merge ))
   rabbitmq:
     config_command: config
     broker:
