@@ -1,0 +1,40 @@
+name: cf-rabbitmq-aws
+director_uuid: REPLACE_WITH_DIRECTOR_UUID
+
+releases:
+  - name: cf-rabbitmq
+    version: 90
+    git: https://github.com/pivotal-cf/cf-rabbitmq-release
+
+stemcells:
+  - name: bosh-aws-xen-ubuntu-trusty-go_agent
+    version: 2865
+
+templates:
+  - cf-rabbitmq-template.yml
+  - cf-rabbitmq-infrastructure-aws.yml
+  - cf-networking.yml
+  - cf-rabbitmq-properties.yml
+
+meta:
+  availability_zone: us-east-1b
+  instance_type: m1.small
+  subnet_ids:
+    rs1: REPLACE_WITH_SUBNET_ID
+  ipmask: "10."
+  rs1_quad: "0.0"
+  dns_servers: [ 8.8.8.8 ]
+  security_groups: REPLACE_WITH_SECURITY_GROUP_NAME
+
+  cf:
+    domain: api.your_cc_endpoint.com
+    api_url: foo
+    nats:
+      host: "10.10.80.11"
+      port: "4222"
+      username: "admin"
+      password: "admin"
+
+  broker:
+    endpoint: http://your_cc_endpoint.com
+ 

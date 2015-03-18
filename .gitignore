@@ -1,0 +1,6 @@
+.stemcells*
+.deployments*
+.releases*
+.stubs*
+*~
+*secret*
