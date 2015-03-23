@@ -97,7 +97,7 @@ properties:
     admin_password: (( merge ))
     nats: (( merge ))
   route-registrar:
-    target_ip: (( jobs.broker-registrar.networks.services1.static_ips.[0]
+    target_ip: (( jobs.broker-registrar.networks.services1.static_ips.[0] ))
   rabbitmq-server:
     plugins:
     - rabbitmq_management
@@ -108,7 +108,7 @@ properties:
         username: (( merge ))
         password: (( merge ))
     static_ips:
-    - (( jobs.rmq.networks.services1.static_ips.[0]
+    - (( jobs.rmq.networks.services1.static_ips.[0] ))
     ssl:
       cert: |
         -----BEGIN CERTIFICATE-----
